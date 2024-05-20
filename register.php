@@ -12,7 +12,7 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
@@ -35,13 +35,15 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
 
                 <button type="submit" class="btn btn-primary w-100 mt-3">Zarejestruj</button>
             </form>
+                <a href="index.php">
+                <button class="btn btn-primary w-100 mt-3">Powrót</button>
+                </a>
             <?php
             if (isset($result)) {
                 if ($result) {
                     echo "Udało się utworzyć konto";
                 } else {
                     echo "Nie udało się utworzyć konta";
-                    //komentarz 
                 }
             }
 

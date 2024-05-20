@@ -60,7 +60,7 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
     </div>
     <?php
     echo "<pre>";
-   
+    var_dump($_SESSION);
     ?>
 </body>
 
