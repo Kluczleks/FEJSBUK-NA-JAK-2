@@ -14,6 +14,10 @@ class User {
         $this->_email = $email;
     }
 
+    public function GetID() : int {
+        return $this->_id;
+    }
+
     static function Register(string $email, string $password) : bool {
         //poniższa funkcja odpowiada za dodanie użytkownika do właściwej tabeli w bazie danych
         //user{id INT, email VARCHAR(128), password VARCHAR(128)}

@@ -1,6 +1,25 @@
 <?php
+require_once('class/User.class.php');
 require_once('class/Profile.class.php');
 session_start();
+
+if(isset($_REQUEST['profileID'])) {
+    $profileID = $_REQUEST['profileID'];
+    $p = Profile::Get($profileID);
+} else {
+    if(isset($_SESSION['user'])) {
+        //jest zalogowany użytkownik - pokaż jego profil
+        //załaduj profil zalogowanego użytkownika
+        $p = Profile::GetUserProfile($_SESSION['user']->GetID());
+    } else {
+        //pokaż domyślny profil
+        $p = Profile::Get(3);
+    }
+    
+}
+    
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -14,15 +33,9 @@ session_start();
 </head>
 
 <body>
-<?php
-if(isset($_REQUEST['profileID']))
-    $profileID = $_REQUEST['profileID'];
-else
-    $profileID = 2; //domyślny profil
+<h1>Profil użytkownika</h1>
+Imię i nazwisko: <?php echo $p->getFullName(); ?><br>
 
-$p = Profile::Get($profileID);
-
-var_dump($p);
-?>
+Zdjęcie profilowe: <img src="<?php echo $p->getProfilePhotoURL(); ?>">
 </body>
 </html>
