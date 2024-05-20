@@ -12,7 +12,7 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -41,6 +41,7 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
                     echo "Udało się utworzyć konto";
                 } else {
                     echo "Nie udało się utworzyć konta";
+                    //komentarz 
                 }
             }
 
